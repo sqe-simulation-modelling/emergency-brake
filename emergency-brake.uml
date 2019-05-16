@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_y159kHfJEemExY-OiUl_JA" name="emergency-brake">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_y159kXfJEemExY-OiUl_JA" source="http://www.eclipse.org/papyrus-rt/language/1.0.0">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y159knfJEemExY-OiUl_JA" key="language" value="umlrt-cpp"/>
     </eAnnotations>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Upc28HfSEemk26ORGLd1kA" name="brake" isActive="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Upc28HfSEemk26ORGLd1kA" name="brake" classifierBehavior="_lgEucHfVEemk26ORGLd1kA" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_AkfzgHfVEemk26ORGLd1kA" name="brakeProtocol" visibility="public" type="_YdLnQHfSEemk26ORGLd1kA" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_VSg6sHfVEemk26ORGLd1kA" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_lgEucHfVEemk26ORGLd1kA" name="StateMachine" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_lg_UcHfVEemk26ORGLd1kA" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_lh8WsHfVEemk26ORGLd1kA" name="Initial" source="_lhSPYHfVEemk26ORGLd1kA" target="_lhwJcHfVEemk26ORGLd1kA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_STZowHfWEemk26ORGLd1kA" kind="external" source="_lhwJcHfVEemk26ORGLd1kA" target="_I734sHfWEemk26ORGLd1kA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_XbSIkHfWEemk26ORGLd1kA" kind="external" source="_I734sHfWEemk26ORGLd1kA" target="_lhwJcHfVEemk26ORGLd1kA"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_lhSPYHfVEemk26ORGLd1kA" kind="initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_lhwJcHfVEemk26ORGLd1kA" name="Normal"/>
+          <subvertex xmi:type="uml:State" xmi:id="_I734sHfWEemk26ORGLd1kA" name="Braking"/>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_YdfJQHfSEemk26ORGLd1kA" name="BrakeProtocol">
       <packagedElement xmi:type="uml:Collaboration" xmi:id="_YdLnQHfSEemk26ORGLd1kA" name="BrakeProtocol">
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_YeUPsHfSEemk26ORGLd1kA" client="_YdLnQHfSEemk26ORGLd1kA" supplier="_Yd28sHfSEemk26ORGLd1kA" contract="_Yd28sHfSEemk26ORGLd1kA"/>
@@ -45,4 +60,11 @@
   <UMLRealTime:RTMessageSet xmi:id="_YeaWUHfSEemk26ORGLd1kA" base_Interface="_YeWr8HfSEemk26ORGLd1kA" rtMsgKind="out"/>
   <UMLRealTime:RTMessageSet xmi:id="_YehEAHfSEemk26ORGLd1kA" base_Interface="_YeeAsHfSEemk26ORGLd1kA" rtMsgKind="inOut"/>
   <UMLRealTime:Protocol xmi:id="_YekHUHfSEemk26ORGLd1kA" base_Collaboration="_YdLnQHfSEemk26ORGLd1kA"/>
+  <UMLRealTime:RTPort xmi:id="_AlDNIHfVEemk26ORGLd1kA" isPublish="false" isWired="true" base_Port="_AkfzgHfVEemk26ORGLd1kA"/>
+  <UMLRealTime:RTPort xmi:id="_VUyLkHfVEemk26ORGLd1kA" isPublish="false" isWired="false" base_Port="_VSg6sHfVEemk26ORGLd1kA"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_lhd1kHfVEemk26ORGLd1kA" base_Pseudostate="_lhSPYHfVEemk26ORGLd1kA"/>
+  <UMLRTStateMachines:RTState xmi:id="_lhzz0HfVEemk26ORGLd1kA" base_State="_lhwJcHfVEemk26ORGLd1kA"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_lh-y8HfVEemk26ORGLd1kA" base_Region="_lg_UcHfVEemk26ORGLd1kA"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_liP4sHfVEemk26ORGLd1kA" base_StateMachine="_lgEucHfVEemk26ORGLd1kA"/>
+  <UMLRTStateMachines:RTState xmi:id="_I7-mYHfWEemk26ORGLd1kA" base_State="_I734sHfWEemk26ORGLd1kA"/>
 </xmi:XMI>
