@@ -515,7 +515,7 @@
             <element xmi:type="uml:InputPin" href="BreakLogic.uml#_R33uEHptEem0yYTtNP494A"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R4s0gnptEem0yYTtNP494A" x="-15" y="13"/>
           </children>
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_PmYzoXptEem0yYTtNP494A"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_PmYzoXptEem0yYTtNP494A" diagramLink="_Npq4sHu0EemRC-BL2mVdvA"/>
           <element xmi:type="uml:CallBehaviorAction" href="BreakLogic.uml#_M7ALcHptEem0yYTtNP494A"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PmZasXptEem0yYTtNP494A" x="805" y="252"/>
         </children>
@@ -803,5 +803,10 @@
       <owner xmi:type="uml:Model" href="BreakLogic.uml#_rwfaEHfJEem7HYT4dFgjBw"/>
     </styles>
     <element xmi:type="uml:Model" href="BreakLogic.uml#_rwfaEHfJEem7HYT4dFgjBw"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_Npq4sHu0EemRC-BL2mVdvA" type="PapyrusUMLActivityDiagram" measurementUnit="Pixel">
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_Npq4sXu0EemRC-BL2mVdvA" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Npq4snu0EemRC-BL2mVdvA"/>
+    <element xmi:type="uml:CallBehaviorAction" href="BreakLogic.uml#_M7ALcHptEem0yYTtNP494A"/>
   </notation:Diagram>
 </xmi:XMI>

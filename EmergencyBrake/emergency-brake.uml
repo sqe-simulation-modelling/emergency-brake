@@ -5,13 +5,28 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y159knfJEemExY-OiUl_JA" key="language" value="umlrt-cpp"/>
     </eAnnotations>
     <packagedElement xmi:type="uml:Class" xmi:id="_Upc28HfSEemk26ORGLd1kA" name="brake" classifierBehavior="_lgEucHfVEemk26ORGLd1kA" isActive="true">
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_AkfzgHfVEemk26ORGLd1kA" name="brakeProtocol" visibility="public" type="_YdLnQHfSEemk26ORGLd1kA" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_AkfzgHfVEemk26ORGLd1kA" name="brakePort" visibility="public" type="_YdLnQHfSEemk26ORGLd1kA" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nBAq0HfXEemk26ORGLd1kA" value="0"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nBqyIHfXEemk26ORGLd1kA" value="*"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_VSg6sHfVEemk26ORGLd1kA" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
         <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_lgEucHfVEemk26ORGLd1kA" name="StateMachine" isReentrant="false">
         <region xmi:type="uml:Region" xmi:id="_lg_UcHfVEemk26ORGLd1kA" name="Region">
-          <transition xmi:type="uml:Transition" xmi:id="_lh8WsHfVEemk26ORGLd1kA" name="Initial" source="_lhSPYHfVEemk26ORGLd1kA" target="_lhwJcHfVEemk26ORGLd1kA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_lh8WsHfVEemk26ORGLd1kA" name="Initial" source="_lhSPYHfVEemk26ORGLd1kA" target="_lhwJcHfVEemk26ORGLd1kA">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_cB5R4HfXEemk26ORGLd1kA" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>// Start the game by sending a &quot;ping&quot; to the other player
+log.log(&quot;Starting game&quot;);
+if ( brakePort.brake().send() ) {
+    log.log( &quot;Brake sent!&quot;);
+} else {
+    log.log( &quot;Error sending Brake!&quot;);
+}
+</body>
+            </effect>
+          </transition>
           <transition xmi:type="uml:Transition" xmi:id="_STZowHfWEemk26ORGLd1kA" kind="external" source="_lhwJcHfVEemk26ORGLd1kA" target="_I734sHfWEemk26ORGLd1kA"/>
           <transition xmi:type="uml:Transition" xmi:id="_XbSIkHfWEemk26ORGLd1kA" kind="external" source="_I734sHfWEemk26ORGLd1kA" target="_lhwJcHfVEemk26ORGLd1kA"/>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_lhSPYHfVEemk26ORGLd1kA" kind="initial"/>
