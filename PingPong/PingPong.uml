@@ -54,7 +54,7 @@ if ( pingPort.ping(34).send() ) {&#xD;
               <language>C++</language>
               <body>    // Reply to a pong message by sending a ping.
     log.log(&quot;Pong received!&quot;);
-    if ( pingPort.ping(33).send() ) {
+    if ( pingPort.ping(rand() % 100).send() ) {
     log.log( &quot;ping sent!&quot;);
     } else {
     log.log( &quot;Error sending Ping!&quot;);
@@ -70,7 +70,7 @@ if ( pingPort.ping(34).send() ) {&#xD;
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_H1dEMHfLEemcT9RMzhEU1Q" name="Ponger" classifierBehavior="_ovLTQHfLEemcT9RMzhEU1Q" isActive="true">
       <ownedAttribute xmi:type="uml:Port" xmi:id="_KrPlkHfLEemcT9RMzhEU1Q" name="pongPort" visibility="public" type="_nhzBgHfIEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite" isBehavior="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UGOSQHfLEemcT9RMzhEU1Q" name="hitCount" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UGOSQHfLEemcT9RMzhEU1Q" name="hitCount" visibility="public" aggregation="none">
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_ibAmgHfLEemcT9RMzhEU1Q" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
@@ -81,7 +81,9 @@ if ( pingPort.ping(34).send() ) {&#xD;
           <transition xmi:type="uml:Transition" xmi:id="_ovbK4HfLEemcT9RMzhEU1Q" name="Initial" source="_ovVrUHfLEemcT9RMzhEU1Q" target="_ovYuoHfLEemcT9RMzhEU1Q">
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_bBkvQHfVEemcT9RMzhEU1Q" name="Effect" isReentrant="false">
               <language>C++</language>
-              <body>log.log(&quot;Ponger is ready33356&quot;);</body>
+              <body>log.log(&quot;Ponger is ready33356&quot;);
+
+</body>
             </effect>
           </transition>
           <transition xmi:type="uml:Transition" xmi:id="_wjI-0HfLEemcT9RMzhEU1Q" name="" source="_ovYuoHfLEemcT9RMzhEU1Q" target="_ovYuoHfLEemcT9RMzhEU1Q">
@@ -89,17 +91,25 @@ if ( pingPort.ping(34).send() ) {&#xD;
               <language>C++</language>
               <body>    // Reply to a ping message by sending a pong.
     log.log(&quot;Ping received!&quot;);
+	
+
     if (hitCount &lt;=5){
-    if ( pongPort.pong(77).send() ){
-	//std::string s;
-	//s.append(&quot;Hello world, &quot;);
-	//s.append(testdata);
-	log.log(testdata);
-    log.log( &quot;pong sent! Testdata: &quot;+testdata);
+    log.log(&quot;Received data:&quot;);
+    log.log(testdata);
+    if(testdata&lt;50) {
+    log.log(&quot;Brake&quot;);
+    } else {
+    log.log(&quot;Drive&quot;);
+    }
+    if ( pongPort.pong(0).send() ){
+
+    	log.log( &quot;pong sent!&quot;);
     } else {
     log.log( &quot;Error sending Pong!&quot;);
     }
-    } else { log.log( &quot;Missed! Game over!&quot;);}
+    } else { 
+    log.log( &quot;Missed! Game over!&quot;);
+    }
     hitCount++;
 </body>
             </effect>
