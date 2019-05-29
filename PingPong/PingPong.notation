@@ -47,7 +47,7 @@
   <notation:Diagram xmi:id="_e1TgkHfKEemcT9RMzhEU1Q" type="PapyrusUMLStateMachineDiagram" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_e1TgkXfKEemcT9RMzhEU1Q" type="StateMachine_Shape">
       <children xmi:type="notation:DecorationNode" xmi:id="_e1TgknfKEemcT9RMzhEU1Q" type="StateMachine_NameLabel">
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e1Tgk3fKEemcT9RMzhEU1Q" width="700" height="22"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e1Tgk3fKEemcT9RMzhEU1Q" width="700" height="20"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_e1TglHfKEemcT9RMzhEU1Q" type="StateMachine_RegionCompartment">
         <children xmi:type="notation:Shape" xmi:id="_e1TglXfKEemcT9RMzhEU1Q" type="Region_Shape">
@@ -93,7 +93,7 @@
           <element xmi:type="uml:Region" href="PingPong.uml#_e0r1gHfKEemcT9RMzhEU1Q"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e1TgmnfKEemcT9RMzhEU1Q" width="700" height="280"/>
         </children>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e1Tgm3fKEemcT9RMzhEU1Q" y="22" width="700" height="278"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e1Tgm3fKEemcT9RMzhEU1Q" y="20" width="700" height="280"/>
       </children>
       <element xmi:type="uml:StateMachine" href="PingPong.uml#_ez6ZcHfKEemcT9RMzhEU1Q"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e1TgnHfKEemcT9RMzhEU1Q" x="30" y="30" width="700" height="300"/>
