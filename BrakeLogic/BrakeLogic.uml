@@ -38,6 +38,10 @@
       <ownedAttribute xmi:type="uml:Port" xmi:id="_T1tmgHfKEemcT9RMzhEU1Q" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
         <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qIPbsIRzEemJZtKMJnThvA" name="SensorDataA" visibility="protected" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_uDE5kIRzEemJZtKMJnThvA" value="100"/>
+      </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ez6ZcHfKEemcT9RMzhEU1Q" name="StateMachine" isReentrant="false">
         <region xmi:type="uml:Region" xmi:id="_e0r1gHfKEemcT9RMzhEU1Q" name="Region">
           <transition xmi:type="uml:Transition" xmi:id="_e1K9sHfKEemcT9RMzhEU1Q" name="Initial" source="_e0zKQHfKEemcT9RMzhEU1Q" target="_e1BzwHfKEemcT9RMzhEU1Q">
@@ -46,11 +50,12 @@
               <body>// Start the game by sending sensor data to the BrakeLogicUnit&#xD;
 log.log(&quot;Starting simulation&quot;);
 srand(time(NULL));&#xD;
-if ( sendSensorDataPort.ping(100).send() ) {&#xD;
+if ( sendSensorDataPort.ping(SensorDataA).send() ) {&#xD;
     log.log( &quot;Sent sensor data!&quot;);&#xD;
 } else {&#xD;
     log.log( &quot;Error sending sensor data!&quot;);&#xD;
-}</body>
+}
+SensorDataA = SensorDataA - 5;</body>
             </effect>
           </transition>
           <transition xmi:type="uml:Transition" xmi:id="_oDrUoHfKEemcT9RMzhEU1Q" name="" source="_e1BzwHfKEemcT9RMzhEU1Q" target="_e1BzwHfKEemcT9RMzhEU1Q">
@@ -58,12 +63,13 @@ if ( sendSensorDataPort.ping(100).send() ) {&#xD;
               <language>C++</language>
               <body>// Reply to a pong message by sending a ping.
 log.log(&quot;Received current speed value of currentSpeed=%i!&quot;, currentSpeedData);
-if ( sendSensorDataPort.ping(rand() % 100 ).send()) { // rand() % 100
+if ( sendSensorDataPort.ping(SensorDataA).send()) { // rand() % 100
 	log.log( &quot;Sent sensor data!&quot;);
 	
 } else {
 	log.log( &quot;Error sending sensor data!&quot;);
 }
+SensorDataA = SensorDataA - 5;
 
 </body>
             </effect>
