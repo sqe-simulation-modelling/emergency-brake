@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_ka7XMHfIEemcT9RMzhEU1Q" name="PingPong">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ">
+  <uml:Model xmi:id="_ka7XMHfIEemcT9RMzhEU1Q" name="BrakeLogic">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ka7XMXfIEemcT9RMzhEU1Q" source="http://www.eclipse.org/papyrus-rt/language/1.0.0">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ka7XMnfIEemcT9RMzhEU1Q" key="language" value="umlrt-cpp"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XaOB0IK8EemIAqiyY6o5Xg" source="UMLRT_Default_top">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XaP3AIK8EemIAqiyY6o5Xg" key="top_name" value="Top"/>
     </eAnnotations>
     <packagedElement xmi:type="uml:Package" xmi:id="_nkvn0HfIEemcT9RMzhEU1Q" name="Protocol1">
       <packagedElement xmi:type="uml:Collaboration" xmi:id="_nhzBgHfIEemcT9RMzhEU1Q" name="Protocol1">
@@ -17,8 +20,8 @@
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_nmG5wHfIEemcT9RMzhEU1Q" name="Protocol1~">
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_ANSD0HfJEemcT9RMzhEU1Q" name="pong">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_r4VTwIIXEemCSPm-xHh_NA" name="testdata">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ANSD0HfJEemcT9RMzhEU1Q" name="fetchSensorData">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_r4VTwIIXEemCSPm-xHh_NA" name="currentSpeedData">
             <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
@@ -30,48 +33,61 @@
       <packagedElement xmi:type="uml:CallEvent" xmi:id="_36-2cHfIEemcT9RMzhEU1Q" operation="_35qn0HfIEemcT9RMzhEU1Q"/>
       <packagedElement xmi:type="uml:CallEvent" xmi:id="_ANrFYHfJEemcT9RMzhEU1Q" operation="_ANSD0HfJEemcT9RMzhEU1Q"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_eErxYHfJEemcT9RMzhEU1Q" name="Pinger" classifierBehavior="_ez6ZcHfKEemcT9RMzhEU1Q" isActive="true">
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_1DJ4QHfJEemcT9RMzhEU1Q" name="pingPort" visibility="public" type="_nhzBgHfIEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eErxYHfJEemcT9RMzhEU1Q" name="Environment" classifierBehavior="_ez6ZcHfKEemcT9RMzhEU1Q" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_1DJ4QHfJEemcT9RMzhEU1Q" name="sendSensorDataPort" visibility="public" type="_nhzBgHfIEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true"/>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_T1tmgHfKEemcT9RMzhEU1Q" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
         <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qIPbsIRzEemJZtKMJnThvA" name="SensorDataA" visibility="protected" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_uDE5kIRzEemJZtKMJnThvA" value="100"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ez6ZcHfKEemcT9RMzhEU1Q" name="StateMachine" isReentrant="false">
         <region xmi:type="uml:Region" xmi:id="_e0r1gHfKEemcT9RMzhEU1Q" name="Region">
           <transition xmi:type="uml:Transition" xmi:id="_e1K9sHfKEemcT9RMzhEU1Q" name="Initial" source="_e0zKQHfKEemcT9RMzhEU1Q" target="_e1BzwHfKEemcT9RMzhEU1Q">
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_yMQuMHfKEemcT9RMzhEU1Q" name="Effect" isReentrant="false">
               <language>C++</language>
-              <body>// Start the game by sending a &quot;ping&quot; to the other player&#xD;
-log.log(&quot;Starting game&quot;);&#xD;
-if ( pingPort.ping(34).send() ) {&#xD;
-    log.log( &quot;ping sent!&quot;);&#xD;
+              <body>// Start the game by sending sensor data to the BrakeLogicUnit&#xD;
+log.log(&quot;Starting simulation&quot;);
+srand(time(NULL));&#xD;
+if ( sendSensorDataPort.ping(SensorDataA).send() ) {&#xD;
+    log.log( &quot;Sent sensor data!&quot;);&#xD;
 } else {&#xD;
-    log.log( &quot;Error sending Ping!&quot;);&#xD;
-}</body>
+    log.log( &quot;Error sending sensor data!&quot;);&#xD;
+}
+SensorDataA = SensorDataA - 5;</body>
             </effect>
           </transition>
           <transition xmi:type="uml:Transition" xmi:id="_oDrUoHfKEemcT9RMzhEU1Q" name="" source="_e1BzwHfKEemcT9RMzhEU1Q" target="_e1BzwHfKEemcT9RMzhEU1Q">
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_DrBEEHfLEemcT9RMzhEU1Q" name="Effect" isReentrant="false">
               <language>C++</language>
-              <body>    // Reply to a pong message by sending a ping.
-    log.log(&quot;Pong received!&quot;);
-    if ( pingPort.ping(rand() % 100).send() ) {
-    log.log( &quot;ping sent!&quot;);
-    } else {
-    log.log( &quot;Error sending Ping!&quot;);
-    }
+              <body>// Reply to a pong message by sending a ping.
+log.log(&quot;Received current speed value of currentSpeed=%i!&quot;, currentSpeedData);
+if ( sendSensorDataPort.ping(SensorDataA).send()) { // rand() % 100
+	log.log( &quot;Sent sensor data!&quot;);
+	
+} else {
+	log.log( &quot;Error sending sensor data!&quot;);
+}
+SensorDataA = SensorDataA - 5;
+
 </body>
             </effect>
             <trigger xmi:type="uml:Trigger" xmi:id="_38dyQHfKEemcT9RMzhEU1Q" event="_ANrFYHfJEemcT9RMzhEU1Q" port="_1DJ4QHfJEemcT9RMzhEU1Q"/>
           </transition>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_e0zKQHfKEemcT9RMzhEU1Q"/>
-          <subvertex xmi:type="uml:State" xmi:id="_e1BzwHfKEemcT9RMzhEU1Q" name="Playing"/>
+          <subvertex xmi:type="uml:State" xmi:id="_e1BzwHfKEemcT9RMzhEU1Q" name="CollectingSensorData"/>
         </region>
       </ownedBehavior>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_H1dEMHfLEemcT9RMzhEU1Q" name="Ponger" classifierBehavior="_ovLTQHfLEemcT9RMzhEU1Q" isActive="true">
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_KrPlkHfLEemcT9RMzhEU1Q" name="pongPort" visibility="public" type="_nhzBgHfIEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite" isBehavior="true"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UGOSQHfLEemcT9RMzhEU1Q" name="hitCount" visibility="public" aggregation="none">
+    <packagedElement xmi:type="uml:Class" xmi:id="_H1dEMHfLEemcT9RMzhEU1Q" name="BrakeLogicUnit" classifierBehavior="_ovLTQHfLEemcT9RMzhEU1Q" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_KrPlkHfLEemcT9RMzhEU1Q" name="fetchSensorDataPort" visibility="public" type="_nhzBgHfIEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite" isBehavior="true"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UGOSQHfLEemcT9RMzhEU1Q" name="currentSpeed" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_wC8KYILEEemIAqiyY6o5Xg">
+          <body>+ currentSpeed : AnsiCLibrary::unsigned int {unique} = 100</body>
+        </ownedComment>
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_3m8k0IK4EemIAqiyY6o5Xg" value="100"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_ibAmgHfLEemcT9RMzhEU1Q" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
         <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
@@ -81,7 +97,7 @@ if ( pingPort.ping(34).send() ) {&#xD;
           <transition xmi:type="uml:Transition" xmi:id="_ovbK4HfLEemcT9RMzhEU1Q" name="Initial" source="_ovVrUHfLEemcT9RMzhEU1Q" target="_ovYuoHfLEemcT9RMzhEU1Q">
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_bBkvQHfVEemcT9RMzhEU1Q" name="Effect" isReentrant="false">
               <language>C++</language>
-              <body>log.log(&quot;Ponger is ready33356&quot;);
+              <body>log.log(&quot;BrakeLogicUnit is ready&quot;);
 
 </body>
             </effect>
@@ -89,40 +105,44 @@ if ( pingPort.ping(34).send() ) {&#xD;
           <transition xmi:type="uml:Transition" xmi:id="_wjI-0HfLEemcT9RMzhEU1Q" name="" source="_ovYuoHfLEemcT9RMzhEU1Q" target="_ovYuoHfLEemcT9RMzhEU1Q">
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_i_zxIHfVEemcT9RMzhEU1Q" name="Effect" isReentrant="false">
               <language>C++</language>
-              <body>    // Reply to a ping message by sending a pong.
-    log.log(&quot;Ping received!&quot;);
+              <body>// Reply to a ping message by sending a pong.
+log.log(&quot;Received data from sensor A with data=%i!&quot;, testdata);
 	
-
-    if (hitCount &lt;=5){
-    log.log(&quot;Received data:&quot;);
-    log.log(testdata);
-    if(testdata&lt;50) {
-    log.log(&quot;Brake&quot;);
-    } else {
-    log.log(&quot;Drive&quot;);
-    }
-    if ( pongPort.pong(0).send() ){
-
-    	log.log( &quot;pong sent!&quot;);
-    } else {
-    log.log( &quot;Error sending Pong!&quot;);
-    }
-    } else { 
-    log.log( &quot;Missed! Game over!&quot;);
-    }
-    hitCount++;
+if (currentSpeed > 0){
+	//log.log(&quot;Received data:&quot;);
+	//log.log(testdata;
+	if(testdata&lt;20) {
+		log.log(&quot;Brake&quot;);
+		currentSpeed = 0;
+	} else {
+		log.log(&quot;Drive&quot;);
+	}
+	
+	if (currentSpeed > 0) {
+		if ( fetchSensorDataPort.fetchSensorData(currentSpeed).send() ){
+			log.log( &quot;Fetching more sensor data...&quot;);
+		} else {
+			log.log( &quot;Error fetching sensor data!&quot;);
+		}
+	} else {
+		log.log( &quot;Performed an emergency brake! Ending the simulation...&quot;);
+	}
+} else { 
+	log.log( &quot;Performed an emergency brake! Ending the simulation...&quot;);
+}
+//currentSpeed--;
 </body>
             </effect>
             <trigger xmi:type="uml:Trigger" xmi:id="_Ezd44HfWEemcT9RMzhEU1Q" event="_36-2cHfIEemcT9RMzhEU1Q" port="_KrPlkHfLEemcT9RMzhEU1Q"/>
           </transition>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_ovVrUHfLEemcT9RMzhEU1Q"/>
-          <subvertex xmi:type="uml:State" xmi:id="_ovYuoHfLEemcT9RMzhEU1Q" name="Playing"/>
+          <subvertex xmi:type="uml:State" xmi:id="_ovYuoHfLEemcT9RMzhEU1Q" name="ProcessingSensorData"/>
         </region>
       </ownedBehavior>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_TecfkHfWEemcT9RMzhEU1Q" name="Top" isActive="true">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_etQhYHfWEemcT9RMzhEU1Q" name="ponger" visibility="protected" type="_H1dEMHfLEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_h9zsIHfWEemcT9RMzhEU1Q" name="pinger" visibility="protected" type="_eErxYHfJEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_etQhYHfWEemcT9RMzhEU1Q" name="BrakeLogicUnit" visibility="protected" type="_H1dEMHfLEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_h9zsIHfWEemcT9RMzhEU1Q" name="Environment" visibility="protected" type="_eErxYHfJEemcT9RMzhEU1Q" isOrdered="true" aggregation="composite"/>
       <ownedConnector xmi:type="uml:Connector" xmi:id="_xZRUkHfWEemcT9RMzhEU1Q" name="RTConnector1">
         <end xmi:type="uml:ConnectorEnd" xmi:id="_xZZQYHfWEemcT9RMzhEU1Q" partWithPort="_h9zsIHfWEemcT9RMzhEU1Q" role="_1DJ4QHfJEemcT9RMzhEU1Q"/>
         <end xmi:type="uml:ConnectorEnd" xmi:id="_xZaegHfWEemcT9RMzhEU1Q" partWithPort="_etQhYHfWEemcT9RMzhEU1Q" role="_KrPlkHfLEemcT9RMzhEU1Q"/>
@@ -176,4 +196,5 @@ if ( pingPort.ping(34).send() ) {&#xD;
   <UMLRealTime:CapsulePart xmi:id="_etTksHfWEemcT9RMzhEU1Q" base_Property="_etQhYHfWEemcT9RMzhEU1Q"/>
   <UMLRealTime:CapsulePart xmi:id="_h92IYHfWEemcT9RMzhEU1Q" base_Property="_h9zsIHfWEemcT9RMzhEU1Q"/>
   <UMLRealTime:RTConnector xmi:id="_xZbFkHfWEemcT9RMzhEU1Q" base_Connector="_xZRUkHfWEemcT9RMzhEU1Q"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_wDAb0ILEEemIAqiyY6o5Xg" base_Comment="_wC8KYILEEemIAqiyY6o5Xg" language="org.eclipse.papyrus.uml.textedit.property.xtext.UmlProperty"/>
 </xmi:XMI>
