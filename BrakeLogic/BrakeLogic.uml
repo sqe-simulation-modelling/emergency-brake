@@ -13,8 +13,8 @@
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_nmOOgHfIEemcT9RMzhEU1Q" client="_nhzBgHfIEemcT9RMzhEU1Q" supplier="_nmKkIXfIEemcT9RMzhEU1Q" contract="_nmKkIXfIEemcT9RMzhEU1Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_nmBaMHfIEemcT9RMzhEU1Q" name="Protocol1">
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_35qn0HfIEemcT9RMzhEU1Q" name="ping">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_W6hdEIIXEemCSPm-xHh_NA" name="testdata">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_35qn0HfIEemcT9RMzhEU1Q" name="sendSensorData">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_W6hdEIIXEemCSPm-xHh_NA" name="sensorData">
             <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
@@ -50,7 +50,7 @@
               <body>// Start the game by sending sensor data to the BrakeLogicUnit&#xD;
 log.log(&quot;Starting simulation&quot;);
 srand(time(NULL));&#xD;
-if ( sendSensorDataPort.ping(SensorDataA).send() ) {&#xD;
+if ( sendSensorDataPort.sendSensorData(SensorDataA).send() ) {&#xD;
     log.log( &quot;Sent sensor data!&quot;);&#xD;
 } else {&#xD;
     log.log( &quot;Error sending sensor data!&quot;);&#xD;
@@ -63,7 +63,7 @@ SensorDataA = SensorDataA - 5;</body>
               <language>C++</language>
               <body>// Reply to a pong message by sending a ping.
 log.log(&quot;Received current speed value of currentSpeed=%i!&quot;, currentSpeedData);
-if ( sendSensorDataPort.ping(SensorDataA).send()) { // rand() % 100
+if ( sendSensorDataPort.sendSensorData(SensorDataA).send()) { // rand() % 100
 	log.log( &quot;Sent sensor data!&quot;);
 	
 } else {
@@ -106,12 +106,12 @@ SensorDataA = SensorDataA - 5;
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_i_zxIHfVEemcT9RMzhEU1Q" name="Effect" isReentrant="false">
               <language>C++</language>
               <body>// Reply to a ping message by sending a pong.
-log.log(&quot;Received data from sensor A with data=%i!&quot;, testdata);
+log.log(&quot;Received data from sensor A with data=%i!&quot;, sensorData);
 	
 if (currentSpeed > 0){
 	//log.log(&quot;Received data:&quot;);
 	//log.log(testdata;
-	if(testdata&lt;20) {
+	if(sensorDataTEST&lt;20) {
 		log.log(&quot;Brake&quot;);
 		currentSpeed = 0;
 	} else {
