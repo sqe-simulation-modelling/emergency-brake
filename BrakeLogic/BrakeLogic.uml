@@ -14,7 +14,13 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_nmBaMHfIEemcT9RMzhEU1Q" name="Protocol1">
         <ownedOperation xmi:type="uml:Operation" xmi:id="_35qn0HfIEemcT9RMzhEU1Q" name="sendSensorData">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_W6hdEIIXEemCSPm-xHh_NA" name="sensorData">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_W6hdEIIXEemCSPm-xHh_NA" name="sensorDataA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_bIWk8IilEemgm9FVCX40jA" name="sensorDataB">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dbUGEIilEemgm9FVCX40jA" name="sensorDataC">
             <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
@@ -42,6 +48,14 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_uDE5kIRzEemJZtKMJnThvA" value="100"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BSerwIioEemgm9FVCX40jA" name="SensorDataB" visibility="protected" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_BSerwYioEemgm9FVCX40jA" value="100"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_B2pv0IioEemgm9FVCX40jA" name="SensorDataC" visibility="protected" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_B2pv0YioEemgm9FVCX40jA" value="100"/>
+      </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ez6ZcHfKEemcT9RMzhEU1Q" name="StateMachine" isReentrant="false">
         <region xmi:type="uml:Region" xmi:id="_e0r1gHfKEemcT9RMzhEU1Q" name="Region">
           <transition xmi:type="uml:Transition" xmi:id="_e1K9sHfKEemcT9RMzhEU1Q" name="Initial" source="_e0zKQHfKEemcT9RMzhEU1Q" target="_e1BzwHfKEemcT9RMzhEU1Q">
@@ -50,7 +64,7 @@
               <body>// Start the game by sending sensor data to the BrakeLogicUnit&#xD;
 log.log(&quot;Starting simulation&quot;);
 srand(time(NULL));&#xD;
-if ( sendSensorDataPort.sendSensorData(SensorDataA).send() ) {&#xD;
+if ( sendSensorDataPort.sendSensorData(SensorDataA, SensorDataB, SensorDataC).send() ) {&#xD;
     log.log( &quot;Sent sensor data!&quot;);&#xD;
 } else {&#xD;
     log.log( &quot;Error sending sensor data!&quot;);&#xD;
@@ -63,7 +77,7 @@ SensorDataA = SensorDataA - 5;</body>
               <language>C++</language>
               <body>// Reply to a pong message by sending a ping.
 log.log(&quot;Received current speed value of currentSpeed=%i!&quot;, currentSpeedData);
-if ( sendSensorDataPort.sendSensorData(SensorDataA).send()) { // rand() % 100
+if ( sendSensorDataPort.sendSensorData(SensorDataA, SensorDataB, SensorDataC).send()) { // rand() % 100
 	log.log( &quot;Sent sensor data!&quot;);
 	
 } else {
@@ -106,12 +120,14 @@ SensorDataA = SensorDataA - 5;
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_i_zxIHfVEemcT9RMzhEU1Q" name="Effect" isReentrant="false">
               <language>C++</language>
               <body>// Reply to a ping message by sending a pong.
-log.log(&quot;Received data from sensor A with data=%i!&quot;, sensorData);
+log.log(&quot;Received data from sensor A with data=%i!&quot;, sensorDataA);
+log.log(&quot;Received data from sensor B with data=%i!&quot;, sensorDataB);
+log.log(&quot;Received data from sensor C with data=%i!&quot;, sensorDataC);
 	
 if (currentSpeed > 0){
 	//log.log(&quot;Received data:&quot;);
 	//log.log(testdata;
-	if(sensorDataTEST&lt;20) {
+	if(sensorDataA&lt;20) {
 		log.log(&quot;Brake&quot;);
 		currentSpeed = 0;
 	} else {
