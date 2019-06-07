@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_rwfaEHfJEem7HYT4dFgjBw" name="BreakLogic">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_yBVtEHfJEem7HYT4dFgjBw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_3Hg8sHfJEem7HYT4dFgjBw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_hh00YHfOEem7HYT4dFgjBw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://PAPYRUS_fUML_LIBRARY/fUML_Library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YdSHMHfNEem7HYT4dFgjBw" name="BreakLogicClass">
+    <ownedBehavior xmi:type="uml:Activity" xmi:id="_ryp9QHfJEem7HYT4dFgjBw" name="ActivityCompare" node="_snycMHfOEem7HYT4dFgjBw _vSlOgHfOEem7HYT4dFgjBw _RJnk8HfQEem7HYT4dFgjBw _h_Z2UHfQEem7HYT4dFgjBw _lIqtUHfQEem7HYT4dFgjBw _m6bl4HfQEem7HYT4dFgjBw _pTp1IHfSEem7HYT4dFgjBw _p58ZEHfSEem7HYT4dFgjBw _44jmEHfVEem7HYT4dFgjBw _sBbtYHpsEem0yYTtNP494A _1kzhEHpsEem0yYTtNP494A _M7ALcHptEem0yYTtNP494A">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ug8K0HpuEem0yYTtNP494A">
+        <body>To see the results of the &quot;Write&quot;-
+behavior, open a Console-View.
+Window > Show View > Other...
+> General > Console</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_BykzkHpvEem0yYTtNP494A">
+        <body>To execute this model, simply right-click the
+ActivityCompare contained in the BreakLogicClass
+and select Moka > Debug (or Run).</body>
+      </ownedComment>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_YXkZYHfQEem7HYT4dFgjBw" name="CF1" target="_UpokgHfPEem7HYT4dFgjBw" source="_RJvgwHfQEem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_N_fgYHfSEem7HYT4dFgjBw" name="CF-AB" target="_rsQgsHfREem7HYT4dFgjBw" source="_o17esHfPEem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_Q2PrEHfSEem7HYT4dFgjBw" name="CF-AB2" target="_vwqxUHfREem7HYT4dFgjBw" source="_HKcwoHfREem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_TXijIHfSEem7HYT4dFgjBw" name="CF-ABC" target="__qoToHfREem7HYT4dFgjBw" source="_6SiNkHfREem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_fLstsHfSEem7HYT4dFgjBw" name="CF-ABC2" target="_CeNOgHfSEem7HYT4dFgjBw" source="_b7ldQHfREem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_y8hz4HfSEem7HYT4dFgjBw" name="CF2" target="_9bRVkHfQEem7HYT4dFgjBw" source="_pTrDQHfSEem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_1NgYAHfSEem7HYT4dFgjBw" name="CF3" target="_WVYpwHfREem7HYT4dFgjBw" source="_p5-OQHfSEem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_q3VLYHpkEemDr-VCL9Rhzw" name="CF_A1" target="_BQ51QHfPEem7HYT4dFgjBw" source="_44q60HfVEem7HYT4dFgjBw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_7d2_IHpsEem0yYTtNP494A" name="CF_B1" target="_6kYoAHfQEem7HYT4dFgjBw" source="_sBdikHpsEem0yYTtNP494A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_-F-Q4HpsEem0yYTtNP494A" name="CF_C1" target="_OpYAUHfREem7HYT4dFgjBw" source="_1k1WQHpsEem0yYTtNP494A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_dypeAHptEem0yYTtNP494A" name="CF-Final" target="_R33uEHptEem0yYTtNP494A" source="_HuCwcHfSEem7HYT4dFgjBw"/>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_snycMHfOEem7HYT4dFgjBw" name="CompareA">
+        <argument xmi:type="uml:InputPin" xmi:id="_BQ51QHfPEem7HYT4dFgjBw" name="InputPinFromSensorA" incoming="_q3VLYHpkEemDr-VCL9Rhzw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_BRTd4HfPEem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <argument xmi:type="uml:InputPin" xmi:id="_UpokgHfPEem7HYT4dFgjBw" name="LowerBoundToStopA" incoming="_YXkZYHfQEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_UpyVgHfPEem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_o17esHfPEem7HYT4dFgjBw" name="ResultA" outgoing="_N_fgYHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_o2DagHfPEem7HYT4dFgjBw" value="1"/>
+        </result>
+        <behavior xmi:type="uml:FunctionBehavior" href="pathmap://PAPYRUS_fUML_LIBRARY/fUML_Library.uml#PrimitiveBehaviors-RealFunctions-lt"/>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_vSlOgHfOEem7HYT4dFgjBw" name="CompareB">
+        <argument xmi:type="uml:InputPin" xmi:id="_6kYoAHfQEem7HYT4dFgjBw" name="InputPinFromSensorB" incoming="_7d2_IHpsEem0yYTtNP494A">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_6khx8HfQEem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <argument xmi:type="uml:InputPin" xmi:id="_9bRVkHfQEem7HYT4dFgjBw" name="LowerBoundToStopB" incoming="_y8hz4HfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_9bYqUHfQEem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_HKcwoHfREem7HYT4dFgjBw" name="ResultB" outgoing="_Q2PrEHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_HKmhoHfREem7HYT4dFgjBw" value="1"/>
+        </result>
+        <behavior xmi:type="uml:FunctionBehavior" href="pathmap://PAPYRUS_fUML_LIBRARY/fUML_Library.uml#PrimitiveBehaviors-RealFunctions-lt"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_RJnk8HfQEem7HYT4dFgjBw" name="10">
+        <result xmi:type="uml:OutputPin" xmi:id="_RJvgwHfQEem7HYT4dFgjBw" name="result" outgoing="_YXkZYHfQEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RJvgwXfQEem7HYT4dFgjBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RJvgwnfQEem7HYT4dFgjBw" value="1"/>
+        </result>
+        <value xmi:type="uml:LiteralReal" xmi:id="_JO4J4HprEem0yYTtNP494A" value="10.0"/>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_h_Z2UHfQEem7HYT4dFgjBw" name="CompareC">
+        <argument xmi:type="uml:InputPin" xmi:id="_OpYAUHfREem7HYT4dFgjBw" name="InputPinFromSensorC" incoming="_-F-Q4HpsEem0yYTtNP494A">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_Opdf4HfREem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <argument xmi:type="uml:InputPin" xmi:id="_WVYpwHfREem7HYT4dFgjBw" name="LowerBoundToStopC" incoming="_1NgYAHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_WVeJUHfREem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_b7ldQHfREem7HYT4dFgjBw" name="ResultC" outgoing="_fLstsHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_b7pusHfREem7HYT4dFgjBw" value="1"/>
+        </result>
+        <behavior xmi:type="uml:FunctionBehavior" href="pathmap://PAPYRUS_fUML_LIBRARY/fUML_Library.uml#PrimitiveBehaviors-RealFunctions-lt"/>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_lIqtUHfQEem7HYT4dFgjBw" name="CompareOutputsAB">
+        <argument xmi:type="uml:InputPin" xmi:id="_rsQgsHfREem7HYT4dFgjBw" name="A" incoming="_N_fgYHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_rsWnUHfREem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <argument xmi:type="uml:InputPin" xmi:id="_vwqxUHfREem7HYT4dFgjBw" name="B" incoming="_Q2PrEHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_vwvCwHfREem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_6SiNkHfREem7HYT4dFgjBw" name="ResultAB" outgoing="_TXijIHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_6SnGEHfREem7HYT4dFgjBw" value="1"/>
+        </result>
+        <behavior xmi:type="uml:FunctionBehavior" href="pathmap://PAPYRUS_fUML_LIBRARY/fUML_Library.uml#PrimitiveBehaviors-BooleanFunctions-Or"/>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_m6bl4HfQEem7HYT4dFgjBw" name="CompareOutputsABC">
+        <argument xmi:type="uml:InputPin" xmi:id="__qoToHfREem7HYT4dFgjBw" name="AB" incoming="_TXijIHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="__qtMIHfREem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <argument xmi:type="uml:InputPin" xmi:id="_CeNOgHfSEem7HYT4dFgjBw" name="C" incoming="_fLstsHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_CeSuEHfSEem7HYT4dFgjBw" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_HuCwcHfSEem7HYT4dFgjBw" name="ResultEmergencyStop" outgoing="_dypeAHptEem0yYTtNP494A">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_HuKFMHfSEem7HYT4dFgjBw" value="1"/>
+        </result>
+        <behavior xmi:type="uml:FunctionBehavior" href="pathmap://PAPYRUS_fUML_LIBRARY/fUML_Library.uml#PrimitiveBehaviors-BooleanFunctions-Or"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_pTp1IHfSEem7HYT4dFgjBw" name="3">
+        <result xmi:type="uml:OutputPin" xmi:id="_pTrDQHfSEem7HYT4dFgjBw" name="result" outgoing="_y8hz4HfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pTrDQXfSEem7HYT4dFgjBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pTrDQnfSEem7HYT4dFgjBw" value="1"/>
+        </result>
+        <value xmi:type="uml:LiteralReal" xmi:id="_K7Xg4HprEem0yYTtNP494A" value="3.0"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_p58ZEHfSEem7HYT4dFgjBw" name="5">
+        <result xmi:type="uml:OutputPin" xmi:id="_p5-OQHfSEem7HYT4dFgjBw" name="result" outgoing="_1NgYAHfSEem7HYT4dFgjBw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p5-OQXfSEem7HYT4dFgjBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p5-OQnfSEem7HYT4dFgjBw" value="1"/>
+        </result>
+        <value xmi:type="uml:LiteralReal" xmi:id="_MU-_MHprEem0yYTtNP494A" value="5.0"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_44jmEHfVEem7HYT4dFgjBw" name="SensorA-Simulator">
+        <result xmi:type="uml:OutputPin" xmi:id="_44q60HfVEem7HYT4dFgjBw" name="result" outgoing="_q3VLYHpkEemDr-VCL9Rhzw">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_44q60XfVEem7HYT4dFgjBw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44q60nfVEem7HYT4dFgjBw" value="1"/>
+        </result>
+        <value xmi:type="uml:LiteralReal" xmi:id="_HtfPoHprEem0yYTtNP494A" value="8.0"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_sBbtYHpsEem0yYTtNP494A" name="SensorB-Simulator">
+        <result xmi:type="uml:OutputPin" xmi:id="_sBdikHpsEem0yYTtNP494A" name="result" outgoing="_7d2_IHpsEem0yYTtNP494A">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sBdikXpsEem0yYTtNP494A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sBdiknpsEem0yYTtNP494A" value="1"/>
+        </result>
+        <value xmi:type="uml:LiteralReal" xmi:id="_xnMcAHpsEem0yYTtNP494A" value="4.0"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_1kzhEHpsEem0yYTtNP494A" name="SensorC-Simulator">
+        <result xmi:type="uml:OutputPin" xmi:id="_1k1WQHpsEem0yYTtNP494A" name="result" outgoing="_-F-Q4HpsEem0yYTtNP494A">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1k1WQXpsEem0yYTtNP494A" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1k1WQnpsEem0yYTtNP494A" value="1"/>
+        </result>
+        <value xmi:type="uml:LiteralReal" xmi:id="_6j_-8HpsEem0yYTtNP494A" value="2.0"/>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_M7ALcHptEem0yYTtNP494A" name="WriteResult">
+        <argument xmi:type="uml:InputPin" xmi:id="_R33uEHptEem0yYTtNP494A" name="FinalResultInput" incoming="_dypeAHptEem0yYTtNP494A">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_R3_C0HptEem0yYTtNP494A" value="1"/>
+        </argument>
+        <behavior xmi:type="uml:Activity" href="pathmap://PAPYRUS_ASSERTION_LIBRARY/AssertionLibrary.uml#_Tz8bEIgWEeKtquXykzQHVw"/>
+      </node>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_kRl-kHfUEem7HYT4dFgjBw" name="CalculateEmergencyBreakResult"/>
+  </packagedElement>
+</uml:Model>
