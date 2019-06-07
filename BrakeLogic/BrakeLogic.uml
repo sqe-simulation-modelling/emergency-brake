@@ -97,7 +97,12 @@ else if (SensorToDecrease == 1) {
 	SensorDataB = SensorDataB - 3;
 }
 else {
-	SensorDataC = SensorDataC - 2;
+	if (rand() % 2 == 0) {
+		SensorDataC = SensorDataC - rand() % 12;
+	}
+	else {
+		SensorDataC = SensorDataC + rand() % 12;
+	}
 }
 
 </body>
@@ -120,6 +125,10 @@ else {
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_ibAmgHfLEemcT9RMzhEU1Q" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
         <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GFgpYIkKEemPMuUpYENSyA" name="previousSurfaceLevel" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_QdqwAIkKEemPMuUpYENSyA" value="50"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ovLTQHfLEemcT9RMzhEU1Q" name="StateMachine" isReentrant="false">
         <region xmi:type="uml:Region" xmi:id="_ovTPEHfLEemcT9RMzhEU1Q" name="Region">
@@ -148,11 +157,12 @@ if (currentSpeed > 0){
 	} else if (sensorDataB &lt; 15) {
 		log.log(&quot;Brake&quot;);
 		currentSpeed = 0;
-	} else if (sensorDataC &lt; 10) {
+	} else if (abs(previousSurfaceLevel - sensorDataC) > 10) {
 		log.log(&quot;Brake&quot;);
 		currentSpeed = 0;
 	} else {
 		log.log(&quot;Drive&quot;);
+		previousSurfaceLevel = sensorDataC;
 	}
 	
 	if (currentSpeed > 0) {
