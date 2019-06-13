@@ -366,7 +366,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Teh_JXfWEemcT9RMzhEU1Q"/>
       </children>
       <element xmi:type="uml:Class" href="BrakeLogic.uml#_TecfkHfWEemcT9RMzhEU1Q"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TehYFXfWEemcT9RMzhEU1Q" x="40" y="40" width="500" height="250"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TehYFXfWEemcT9RMzhEU1Q" x="40" y="40" width="672" height="250"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_TehYEXfWEemcT9RMzhEU1Q" name="diagram_compatibility_version" stringValue="1.3.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_TehYEnfWEemcT9RMzhEU1Q"/>

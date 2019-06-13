@@ -121,7 +121,7 @@ else {
           <body>+ currentSpeed : AnsiCLibrary::unsigned int {unique} = 100</body>
         </ownedComment>
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
-        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_3m8k0IK4EemIAqiyY6o5Xg" value="100"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_3m8k0IK4EemIAqiyY6o5Xg" value="20"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_ibAmgHfLEemcT9RMzhEU1Q" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
         <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
@@ -147,37 +147,55 @@ else {
 log.log(&quot;Received data from sensor A with data=%i!&quot;, sensorDataA);
 log.log(&quot;Received data from sensor B with data=%i!&quot;, sensorDataB);
 log.log(&quot;Received data from sensor C with data=%i!&quot;, sensorDataC);
-	
+
 if (currentSpeed > 0){
-	//log.log(&quot;Received data:&quot;);
-	//log.log(testdata;
-	if(sensorDataA&lt;20) {
-		log.log(&quot;Brake&quot;);
-		currentSpeed = 0;
-	} else if (sensorDataB &lt; 15) {
-		log.log(&quot;Brake&quot;);
-		currentSpeed = 0;
-	} else if (abs(previousSurfaceLevel - sensorDataC) > 10) {
-		log.log(&quot;Brake&quot;);
-		currentSpeed = 0;
-	} else {
-		log.log(&quot;Drive&quot;);
-		previousSurfaceLevel = sensorDataC;
-	}
-	
-	if (currentSpeed > 0) {
-		if ( fetchSensorDataPort.fetchSensorData(currentSpeed).send() ){
-			log.log( &quot;Fetching more sensor data...&quot;);
-		} else {
-			log.log( &quot;Error fetching sensor data!&quot;);
-		}
-	} else {
-		log.log( &quot;Performed an emergency brake! Ending the simulation...&quot;);
-	}
+    //log.log(&quot;Received data:&quot;);
+    //log.log(testdata);
+    if (sensorDataA / currentSpeed &lt; 3) { // if the rover is about to hit a wall within the next 3 seconds
+	log.log(&quot;Brake because an obstacle is coming too close from front (sensor A)!&quot;);
+	currentSpeed = 0;
+    } else if (sensorDataB &lt; 2) { // if an obstacle is very close around the rover, e.g. during parking
+	log.log(&quot;Brake because an obstacle is too close around the rover (sensor B)!&quot;);
+    } else if (abs(previousSurfaceLevel - sensorDataC) > 10) {
+	log.log(&quot;Brake because too quick surface level change (sensor C)!&quot;);
+	currentSpeed = 0;
+    } else {
+	log.log(&quot;Drive&quot;);
+    }
+    if (currentSpeed > 0) {
+	if ( fetchSensorDataPort.fetchSensorData(currentSpeed).send() ){
+		log.log( &quot;Fetching more sensor data...&quot;);
+    	} else {
+		log.log( &quot;Error fetching sensor data!&quot;);
+    	}
+    } else {
+    	log.log( &quot;Performed an emergency brake! Ending the simulation...&quot;);
+    }
 } else { 
 	log.log( &quot;Performed an emergency brake! Ending the simulation...&quot;);
 }
-//currentSpeed--;
+// Requires to include in BrakeLogicUnit.cc
+//#include &lt;thread>
+//#include &lt;iostream>
+//#include &lt;chrono>
+std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
+//    OLD:
+//    if(sensorDataA&lt;20) {
+//	log.log(&quot;Brake&quot;);
+//	currentSpeed = 0;
+//    } else if (sensorDataB &lt; 15) {
+//    log.log(&quot;Brake&quot;);
+//    currentSpeed = 0;
+//    } else if (abs(previousSurfaceLevel - sensorDataC) > 10) {
+//    log.log(&quot;Brake&quot;);
+//    currentSpeed = 0;
+//    } else {
+//    log.log(&quot;Drive&quot;);
+//    previousSurfaceLevel = sensorDataC;
+//    }
+    //sleep(5);
+    //currentSpeed--;
 </body>
             </effect>
             <trigger xmi:type="uml:Trigger" xmi:id="_Ezd44HfWEemcT9RMzhEU1Q" event="_36-2cHfIEemcT9RMzhEU1Q" port="_KrPlkHfLEemcT9RMzhEU1Q"/>
