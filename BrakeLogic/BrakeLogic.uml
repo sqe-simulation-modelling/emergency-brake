@@ -178,7 +178,7 @@ if (currentSpeed > 0){
 //#include &lt;thread>
 //#include &lt;iostream>
 //#include &lt;chrono>
-std::this_thread::sleep_for(std::chrono::milliseconds(200));
+std::this_thread::sleep_for(std::chrono::milliseconds(250));
 
 //    OLD:
 //    if(sensorDataA&lt;20) {
