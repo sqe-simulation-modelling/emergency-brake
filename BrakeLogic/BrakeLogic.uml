@@ -23,6 +23,9 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_dbUGEIilEemgm9FVCX40jA" name="sensorDataC">
             <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_vPFy0JB-Eemdd41GHD9OYg" name="steering">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_nmG5wHfIEemcT9RMzhEU1Q" name="Protocol1~">
@@ -54,11 +57,23 @@
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_B2pv0IioEemgm9FVCX40jA" name="SensorDataC" visibility="protected" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <qualifier xmi:type="uml:Property" xmi:id="_GRraIJB-Eemdd41GHD9OYg" name="SensorDataC" visibility="protected" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_GRraIZB-Eemdd41GHD9OYg" value="50"/>
+        </qualifier>
         <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_B2pv0YioEemgm9FVCX40jA" value="50"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6QU2AIkHEemPMuUpYENSyA" name="SensorToDecrease" visibility="public" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         <defaultValue xmi:type="uml:LiteralInteger" xmi:id="__atQMIkHEemPMuUpYENSyA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HVUBYJB-Eemdd41GHD9OYg" name="Steering" visibility="protected" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <qualifier xmi:type="uml:Property" xmi:id="_HVUBYZB-Eemdd41GHD9OYg" name="Steering" visibility="protected" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_HVUBYpB-Eemdd41GHD9OYg" value="0"/>
+        </qualifier>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_HVUBY5B-Eemdd41GHD9OYg" value="0"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ez6ZcHfKEemcT9RMzhEU1Q" name="StateMachine" isReentrant="false">
         <region xmi:type="uml:Region" xmi:id="_e0r1gHfKEemcT9RMzhEU1Q" name="Region">
@@ -68,7 +83,7 @@
               <body>// Start the game by sending sensor data to the BrakeLogicUnit&#xD;
 log.log(&quot;Starting simulation&quot;);
 srand(time(NULL));&#xD;
-if ( sendSensorDataPort.sendSensorData(SensorDataA, SensorDataB, SensorDataC).send() ) {&#xD;
+if ( sendSensorDataPort.sendSensorData(SensorDataA, SensorDataB, SensorDataC, Steering).send() ) {&#xD;
     log.log( &quot;Sent sensor data!&quot;);&#xD;
 } else {&#xD;
     log.log( &quot;Error sending sensor data!&quot;);&#xD;
@@ -81,20 +96,22 @@ SensorDataA = SensorDataA - 5;</body>
               <language>C++</language>
               <body>// Reply to a pong message by sending a ping.
 log.log(&quot;Received current speed value of currentSpeed=%i!&quot;, currentSpeedData);
-if ( sendSensorDataPort.sendSensorData(SensorDataA, SensorDataB, SensorDataC).send()) { // rand() % 100
+if ( sendSensorDataPort.sendSensorData(SensorDataA, SensorDataB, SensorDataC, Steering).send()) { // rand() % 100
 	log.log( &quot;Sent sensor data!&quot;);
-	
 } else {
 	log.log( &quot;Error sending sensor data!&quot;);
 }
 
 // Modify sensor data
-SensorToDecrease = rand() % 3;
+SensorToDecrease = rand() % 4;
 if (SensorToDecrease == 0) {
 	SensorDataA = SensorDataA - 5;
 }
 else if (SensorToDecrease == 1) {
 	SensorDataB = SensorDataB - 3;
+}
+else if (SensorToDecrease == 2) {
+	Steering = (rand() % 180) - 90;
 }
 else {
 	if (rand() % 2 == 0) {
@@ -147,6 +164,7 @@ else {
 log.log(&quot;Received data from sensor A with data=%i!&quot;, sensorDataA);
 log.log(&quot;Received data from sensor B with data=%i!&quot;, sensorDataB);
 log.log(&quot;Received data from sensor C with data=%i!&quot;, sensorDataC);
+log.log(&quot;Received steering data with data=%i!&quot;, steering);
 
 if (currentSpeed > 0){
     //log.log(&quot;Received data:&quot;);
