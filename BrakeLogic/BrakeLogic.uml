@@ -165,11 +165,12 @@ log.log(&quot;Received data from sensor A with data=%i!&quot;, sensorDataA);
 log.log(&quot;Received data from sensor B with data=%i!&quot;, sensorDataB);
 log.log(&quot;Received data from sensor C with data=%i!&quot;, sensorDataC);
 log.log(&quot;Received steering data with data=%i!&quot;, steering);
+log.log(&quot;R = %g&quot;, 3 / sin(abs(steering)));
 
 if (currentSpeed > 0){
     //log.log(&quot;Received data:&quot;);
     //log.log(testdata);
-    if (sensorDataA / currentSpeed &lt; 3) { // if the rover is about to hit a wall within the next 3 seconds
+    if (sensorDataA / currentSpeed &lt; 3 &amp;&amp;  (3 / sin(abs(steering))) > sensorDataA) { // if the rover is about to hit a wall within the next 3 seconds
 	log.log(&quot;Brake because an obstacle is coming too close from front (sensor A)!&quot;);
 	currentSpeed = 0;
     } else if (sensorDataB &lt; 2) { // if an obstacle is very close around the rover, e.g. during parking
